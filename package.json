@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/rascafr/loopback-secure-storage/issues"
   },
-  "homepage": "https://github.com/rascafr/loopback-secure-storage#readme"
+  "homepage": "https://github.com/rascafr/loopback-secure-storage#readme",
+  "dependencies": {
+    "aes-js": "^3.1.2",
+    "fs": "0.0.1-security",
+    "path": "^0.12.7",
+    "uuid": "^3.3.2"
+  }
 }
