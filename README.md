@@ -12,6 +12,10 @@ Secure (AES) file system storage component for Loopback / IBM API ORM
 
 Because code is always better than a Markdown file, an example is available [here](https://github.com/rascafr/example-loopback-secure-storage). Feel free to clone and tweak it!
 
+## Installation
+
+In your own project, run `npm i loopback-secure-storage` and you're good to go.
+
 ## Configuration
 
 You must add a file in your `server` directory to handle secure storage settings, named `storage.NODE_ENV.json`:
