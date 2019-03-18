@@ -8,6 +8,10 @@ Secure (AES) file system storage component for Loopback / IBM API ORM
 - 128bits key support (generate / use / check)
 - compatible with Loopback's storage component (usage, config)
 
+## Example
+
+Because code is always better than a Markdown file, an example is available [here](https://github.com/rascafr/example-loopback-secure-storage). Feel free to clone and tweak it!
+
 ## Configuration
 
 You must add a file in your `server` directory to handle secure storage settings, named `storage.NODE_ENV.json`:
