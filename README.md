@@ -31,6 +31,8 @@ You must add a file in your `server` directory to handle secure storage settings
 }
 ```
 
+**Note:** You do not have to create the "root" directory, if it does not exists, then the module will do the job when the app starts.
+
 ## Key management
 
 To generate a key, you can use the `aes` sub-library provided with the package as:
