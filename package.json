@@ -1,6 +1,6 @@
 {
   "name": "loopback-secure-storage",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Secure (AES) file system storage component for Loopback / IBM API ORM",
   "main": "index.js",
   "scripts": {
