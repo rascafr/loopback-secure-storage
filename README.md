@@ -118,43 +118,45 @@ const key = SecureStorage.getRandomKey().hex;
 
 Module can be tested with `mocha`:
 
-```bash
+```
 npm run test
 
 SecureStorage
-    before test: cleanup
-      ✓ should cleanup temporary storage directory
-    main functions
-      #getRandomKey
-        ✓ should return a 16 bytes random key
-      #init
-        ✓ should initialise properly without crashing
-      #writeFile<Promise>
-        ✓ should write encrypted file without error (promise)
-      #readFile<Promise>
-        ✓ should read previously written file without error (promise)
-      #deleteFile<Promise>
-        ✓ should delete previously written file without error (promise)
-      #writeFile(err)
-        ✓ should write encrypted file without error (callback)
-      #readFile(err, data)
-        ✓ should read previously written file without error (callback)
-      #deleteFile(err, deleted)
-        ✓ should delete previously written file without error (callback)
-    server functions
-      ✓ should be able to upload and encrypt a file (42ms)
-      ✓ should be able to download a decrypted file
-      ✓ should not be able to upload a file with a wrong extension
-      ✓ should not be able to upload a file with a wrong mime type
-      ✓ should not be able to upload a file with data size that exceeds the config limit
-    util functions
-      #asKiB
-        ✓ should convert bytes to kibibytes properly
-      #asMiB
-        ✓ should convert bytes to mebibytes properly
-      #asGiB
-        ✓ should convert bytes to gibibytes properly
-    after test: cleanup
-      ✓ should cleanup temporary storage directory
+  before test: cleanup
+    ✓ should cleanup temporary storage directory
+  main functions
+    #getRandomKey
+      ✓ should return a 16 bytes random key
+    #init
+      ✓ should initialise properly without crashing
+    #writeFile<Promise>
+      ✓ should write encrypted file without error (promise)
+    #readFile<Promise>
+      ✓ should read previously written file without error (promise)
+    #deleteFile<Promise>
+      ✓ should delete previously written file without error (promise)
+    #writeFile(err)
+      ✓ should write encrypted file without error (callback)
+    #readFile(err, data)
+      ✓ should read previously written file without error (callback)
+    #deleteFile(err, deleted)
+      ✓ should delete previously written file without error (callback)
+  server functions
+    ✓ needs express to test server function so we have to start it now
+    ✓ should be able to upload and encrypt a file (38ms)
+    ✓ should be able to download a decrypted file
+    ✓ should not be able to upload a file with a wrong extension
+    ✓ should not be able to upload a file with a wrong mime type
+    ✓ should not be able to upload a file with data size that exceeds the config limit
+  util functions
+    #asKiB
+      ✓ should convert bytes to kibibytes properly
+    #asMiB
+      ✓ should convert bytes to mebibytes properly
+    #asGiB
+      ✓ should convert bytes to gibibytes properly
+  after test: cleanup
+    ✓ should cleanup temporary storage directory
+    ✓ should close test express instance properly
 
 ```
