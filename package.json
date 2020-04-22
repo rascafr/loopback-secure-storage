@@ -4,7 +4,7 @@
   "description": "Secure (AES) file system storage component for Loopback / IBM API ORM",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -25,10 +25,19 @@
   },
   "keywords": [
     "loopback",
+    "express",
     "aes",
     "storage",
     "secure-storage",
     "encryption",
     "decryption"
-  ]
+  ],
+  "devDependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mocha": "^7.1.1",
+    "multer": "^1.4.2",
+    "request": "^2.88.2",
+    "rimraf": "^3.0.2"
+  }
 }
