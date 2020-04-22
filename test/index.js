@@ -25,6 +25,7 @@ describe('SecureStorage', () => {
         ],
         sysKey: null
     };
+    let tmpExpressServerHandle = null; // so we can close express at the end
 
     // clean before starting tests
     describe('before test: cleanup', () => {
@@ -104,13 +105,9 @@ describe('SecureStorage', () => {
         const loopback = express();
         const lbPort = 4201;
         let tmpUniqueFileName = '';
-        loopback.use(bodyParser.json());
-        loopback.use(bodyParser.urlencoded({
-            extended: true
-        }));
         loopback.use(multer().any());
 
-        // create file
+        // create file route
         loopback.post('/uploadFile', (req, res) => {
             SecureStorage.uploadFile({req}, (err, fileObj) => {
                 if (err) res.status(err.status || 400).send(JSON.stringify(err));
@@ -118,11 +115,16 @@ describe('SecureStorage', () => {
             });
         });
 
-        // download file
+        // download file route
         loopback.get('/downloadFile', (req, res) => {
             SecureStorage.downloadFile(tmpUniqueFileName, res);
         });
-        loopback.listen(lbPort);
+
+        it('needs express to test server function so we have to start it now', (done) => {
+            tmpExpressServerHandle = loopback.listen(lbPort, () => {
+                done();
+            });
+        });
 
         it('should be able to upload and encrypt a file', (done) => {
 
@@ -236,6 +238,12 @@ describe('SecureStorage', () => {
     describe('after test: cleanup', () => {
         it('should cleanup temporary storage directory', (done) => {
             rimraf(STORAGE_DIR, done);
+        });
+
+        it('should close test express instance properly', (done) => {
+            tmpExpressServerHandle.close(() => {
+                done();
+            });
         });
     });
 });
